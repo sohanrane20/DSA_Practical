@@ -1,0 +1,32 @@
+Implement Stack Using Linked List
+
+
+Aim
+To implement a stack using a singly linked list and perform standard stack
+operations.
+
+
+Operations to Implement
+push()
+pop()
+peek()
+isEmpty()
+Note: Stack overflow does not occur in
+linked list implementation unless memory is exhausted.
+
+Example
+Push 10
+Push 30
+Pop → Output: 30
+
+Expected Approach
+Each stack element is represented as a node containing:
+data
+next pointer
+
+The top of the stack is represented by the head pointer of the linked list.
+
+push() → Insert node at the
+beginning
+pop() → Delete node from the
+beginning
