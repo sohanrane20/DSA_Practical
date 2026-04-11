@@ -1,5 +1,5 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
 struct Node
 {
     int data;
@@ -10,7 +10,7 @@ struct Node *insert(struct Node *root, int data)
 {
     if (root == NULL)
     {
-        root = new Node();
+        root = (struct Node *)malloc(sizeof(struct Node));
         root->data = data;
         root->left = NULL;
         root->right = NULL;
@@ -31,52 +31,48 @@ void inorder(struct Node *root)
     if (root != NULL)
     {
         inorder(root->left);
-        cout << root->data << ",";
+        printf("%d, ", root->data);
         inorder(root->right);
     }
 }
-bool search(struct Node *root, int data)
+int findMax(struct Node *root)
 {
-    if (root == NULL)
+    if (root != NULL)
     {
-        return false;
+        if (root->right != NULL)
+        {
+            return findMax(root->right);
+        }
+        return root->data;
     }
-    if (root->data == data)
+}
+int findMin(struct Node *root)
+{
+    if (root != NULL)
     {
-        return true;
-    }
-    else if (data < root->data)
-    {
-        return search(root->left, data);
-    }
-    else
-    {
-        return search(root->right, data);
+        if (root->left != NULL)
+        {
+            return findMin(root->left);
+        }
+        return root->data;
     }
 }
 int main()
 {
     int n, data;
     struct Node *root = NULL;
-    cout << "Enter number of nodes : ";
-    cin >> n;
+    printf("Enter number of nodes : ");
+    scanf("%d", &n);
     for (int i = 1; i <= n; i++)
     {
-        cout << "Enter data : ";
-        cin >> data;
+        printf("Enter data : ");
+        scanf("%d", &data);
         root = insert(root, data);
     }
     inorder(root);
-    cout << endl;
-    cout << "Enter data to search : ";
-    cin >> data;
-    if (search(root, data))
-    {
-        cout << data << " was found\n";
-    }
-    else
-    {
-        cout << data << " was not found\n";
-    }
+    printf("\n");
+    int max = findMax(root), min = findMin(root);
+    printf("Maximum element : %d\n", max);
+    printf("Minimum element : %d\n", min);
     return 0;
 }

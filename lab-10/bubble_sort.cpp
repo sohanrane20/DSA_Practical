@@ -3,7 +3,15 @@
 using namespace std;
 int main()
 {
-    int n = 6, arr[n] = {12, 90, 23, 89, 34, 78};
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Enter element: ";
+        cin >> arr[i];
+    }
     for (int pass = 1; pass < n; pass++)
     {
         for (int i = 0; i <= n - pass - 1; i++)

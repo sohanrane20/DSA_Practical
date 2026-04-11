@@ -1,12 +1,20 @@
-// merge sort
+// Merge sort
 #include <iostream>
 using namespace std;
 void merge(int arr[], int beg, int mid, int end);
 void merge_sort(int arr[], int beg, int end);
 int main()
 {
-    int arr[6] = {9, 6, 5, 0, 8, 2};
-    merge_sort(arr, 0, 5);
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Enter element: ";
+        cin >> arr[i];
+    }
+    merge_sort(arr, 0, n - 1);
     for (int i = 0; i <= 5; i++)
         cout << arr[i] << "\t";
     cout << endl;

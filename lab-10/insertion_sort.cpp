@@ -1,9 +1,17 @@
-// insertion sort
+// Insertion sort
 #include <iostream>
 using namespace std;
 int main()
 {
-    int arr[9] = {9, 6, 5, 0, 8, 2, 7, 1, 3};
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Enter element: ";
+        cin >> arr[i];
+    }
     for (int j = 1; j <= 8; j++)
     {
         int min = arr[j], i;

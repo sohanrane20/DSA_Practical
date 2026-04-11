@@ -1,12 +1,21 @@
+// Quick sort
 #include <iostream>
 using namespace std;
 int partition(int arr[], int beg, int end);
 void quick_sort(int arr[], int beg, int end);
 int main()
 {
-    int arr[8] = {9, 6, 5, 0, 8, 2, 4, 7};
-    quick_sort(arr, 0, 7);
-    for (int i = 0; i < 8; i++)
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Enter element: ";
+        cin >> arr[i];
+    }
+    quick_sort(arr, 0, n - 1);
+    for (int i = 0; i < n; i++)
         cout << arr[i] << "\t";
     cout << endl;
     return 0;
